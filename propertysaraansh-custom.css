@@ -1,0 +1,686 @@
+/* ============================================================
+   PROPERTY SARAANSH — CUSTOM THEME CSS
+   Modern Clean Theme | Emerald Green Accents
+   Apply via: WordPress Admin → Appearance → Customize → Additional CSS
+   ============================================================ */
+
+/* ─── GOOGLE FONTS ─── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* ─── CSS VARIABLES / DESIGN TOKENS ─── */
+:root {
+  --ps-green:        #10b981;
+  --ps-green-dark:   #059669;
+  --ps-green-light:  #d1fae5;
+  --ps-green-glow:   rgba(16, 185, 129, 0.15);
+  --ps-white:        #ffffff;
+  --ps-off-white:    #f8fafc;
+  --ps-light-gray:   #f1f5f9;
+  --ps-border:       #e2e8f0;
+  --ps-text-dark:    #0f172a;
+  --ps-text-mid:     #334155;
+  --ps-text-light:   #64748b;
+  --ps-shadow-sm:    0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --ps-shadow-md:    0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  --ps-shadow-lg:    0 10px 40px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+  --ps-radius:       12px;
+  --ps-radius-lg:    20px;
+  --ps-transition:   all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height:   80px;
+}
+
+/* ─── GLOBAL BASE ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: var(--ps-text-dark) !important;
+  background-color: var(--ps-white) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── TYPOGRAPHY ─── */
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 700 !important;
+  color: var(--ps-text-dark) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+
+p, li, span, a, div {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Accent headings */
+.elementor-widget-heading .elementor-heading-title {
+  position: relative;
+}
+
+/* ─── SMOOTH SCROLL ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════ */
+
+/* Header outer wrapper */
+header.elementor-location-header,
+.elementor-location-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%) !important;
+  border-bottom: 2px solid var(--ps-green-light) !important;
+  box-shadow: 0 2px 20px rgba(16, 185, 129, 0.12), 0 1px 4px rgba(0,0,0,0.06) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transition: var(--ps-transition) !important;
+}
+
+/* Header inner container */
+.elementor-location-header .e-con-inner,
+.elementor-location-header .elementor-container {
+  min-height: var(--header-height) !important;
+  padding: 0 32px !important;
+  align-items: center !important;
+  gap: 24px !important;
+}
+
+/* Logo sizing */
+.elementor-location-header .elementor-widget-theme-site-logo img,
+.elementor-location-header .elementor-widget-image img {
+  width: auto !important;
+  height: 56px !important;
+  max-height: 56px !important;
+  object-fit: contain !important;
+  transition: var(--ps-transition) !important;
+}
+
+.elementor-location-header .elementor-widget-theme-site-logo img:hover,
+.elementor-location-header .elementor-widget-image img:hover {
+  transform: scale(1.04) !important;
+}
+
+/* ─── NAVIGATION LINKS ─── */
+.elementor-location-header .elementor-nav-menu > li > a,
+.elementor-location-header .elementor-item {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--ps-text-mid) !important;
+  text-decoration: none !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.01em !important;
+  transition: var(--ps-transition) !important;
+  position: relative !important;
+}
+
+.elementor-location-header .elementor-nav-menu > li > a:hover,
+.elementor-location-header .elementor-item:hover,
+.elementor-location-header .elementor-item-active {
+  color: var(--ps-green-dark) !important;
+  background-color: var(--ps-green-glow) !important;
+}
+
+/* Active underline accent */
+.elementor-location-header .elementor-nav-menu > li > a.elementor-item-active::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 14px !important;
+  right: 14px !important;
+  height: 2px !important;
+  background: var(--ps-green) !important;
+  border-radius: 2px !important;
+}
+
+/* Remove default Elementor underline pointer */
+.e--pointer-underline .elementor-item::before,
+.e--pointer-underline .elementor-item::after {
+  display: none !important;
+}
+
+/* ─── CTA BUTTON IN HEADER ─── */
+/* Style the "Contact" or last nav item as a CTA button */
+.elementor-location-header .elementor-nav-menu li:last-child a,
+.elementor-location-header .elementor-nav-menu li.menu-item-20185 a {
+  background: linear-gradient(135deg, var(--ps-green) 0%, var(--ps-green-dark) 100%) !important;
+  color: #ffffff !important;
+  padding: 10px 22px !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35) !important;
+  transition: var(--ps-transition) !important;
+}
+
+.elementor-location-header .elementor-nav-menu li:last-child a:hover,
+.elementor-location-header .elementor-nav-menu li.menu-item-20185 a:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5) !important;
+  background: linear-gradient(135deg, #0ea579 0%, #047857 100%) !important;
+  color: #ffffff !important;
+}
+
+/* ─── WHATSAPP / PHONE BADGE IN HEADER ─── */
+/* Add WhatsApp floating button to header area */
+.elementor-location-header::after {
+  content: "📞 +91 98765 43210" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 200px !important;
+  transform: translateY(-50%) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ps-green-dark) !important;
+  background: var(--ps-green-light) !important;
+  padding: 6px 14px !important;
+  border-radius: 50px !important;
+  white-space: nowrap !important;
+  display: none !important; /* Enable if you want phone badge */
+}
+
+/* ─── MOBILE HAMBURGER ─── */
+.elementor-menu-toggle {
+  color: var(--ps-green-dark) !important;
+  background: var(--ps-green-light) !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  transition: var(--ps-transition) !important;
+}
+
+.elementor-menu-toggle:hover {
+  background: var(--ps-green) !important;
+  color: #fff !important;
+}
+
+/* Mobile dropdown */
+.elementor-nav-menu--dropdown {
+  background: #ffffff !important;
+  border-top: 2px solid var(--ps-green-light) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12) !important;
+  border-radius: 0 0 var(--ps-radius) var(--ps-radius) !important;
+}
+
+.elementor-nav-menu--dropdown .elementor-item {
+  border-bottom: 1px solid var(--ps-border) !important;
+  padding: 14px 24px !important;
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+
+footer.elementor-location-footer,
+.elementor-location-footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f2217 100%) !important;
+  color: #e2e8f0 !important;
+  padding: 60px 0 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Footer green top accent border */
+.elementor-location-footer::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, var(--ps-green) 0%, #34d399 50%, var(--ps-green-dark) 100%) !important;
+}
+
+/* Footer background pattern */
+.elementor-location-footer::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -100px !important;
+  right: -100px !important;
+  width: 400px !important;
+  height: 400px !important;
+  background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%) !important;
+  pointer-events: none !important;
+}
+
+/* Footer all text */
+.elementor-location-footer,
+.elementor-location-footer p,
+.elementor-location-footer span,
+.elementor-location-footer li,
+.elementor-location-footer div {
+  color: #cbd5e1 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Footer headings */
+.elementor-location-footer h1,
+.elementor-location-footer h2,
+.elementor-location-footer h3,
+.elementor-location-footer h4,
+.elementor-location-footer .elementor-heading-title {
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.3) !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Footer links */
+.elementor-location-footer a,
+.elementor-location-footer .elementor-item {
+  color: #94a3b8 !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: var(--ps-transition) !important;
+  display: inline-block !important;
+}
+
+.elementor-location-footer a:hover,
+.elementor-location-footer .elementor-item:hover {
+  color: var(--ps-green) !important;
+  transform: translateX(4px) !important;
+}
+
+/* Footer nav menu */
+.elementor-location-footer .elementor-nav-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.elementor-location-footer .elementor-nav-menu li::before {
+  content: '→' !important;
+  color: var(--ps-green) !important;
+  margin-right: 8px !important;
+  font-size: 12px !important;
+}
+
+/* Footer social icons */
+.elementor-location-footer .elementor-social-icon {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  border-radius: 10px !important;
+  width: 42px !important;
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: var(--ps-transition) !important;
+}
+
+.elementor-location-footer .elementor-social-icon:hover {
+  background: var(--ps-green) !important;
+  border-color: var(--ps-green) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+.elementor-location-footer .elementor-social-icon i,
+.elementor-location-footer .elementor-social-icon svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Footer copyright bar */
+.elementor-location-footer .elementor-location-footer-bottom,
+.ps-footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+  padding: 20px 32px !important;
+  text-align: center !important;
+  margin-top: 40px !important;
+  background: rgba(0,0,0,0.2) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   PAGE BODY / CONTENT SECTIONS
+   ═══════════════════════════════════════════════ */
+
+/* General section padding */
+.elementor-section,
+.e-con {
+  transition: var(--ps-transition) !important;
+}
+
+/* Cards & image boxes */
+.elementor-widget-image-box .elementor-image-box-wrapper,
+.elementor-widget-image-box {
+  background: var(--ps-white) !important;
+  border: 1px solid var(--ps-border) !important;
+  border-radius: var(--ps-radius-lg) !important;
+  padding: 28px !important;
+  transition: var(--ps-transition) !important;
+  box-shadow: var(--ps-shadow-sm) !important;
+}
+
+.elementor-widget-image-box .elementor-image-box-wrapper:hover,
+.elementor-widget-image-box:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: var(--ps-shadow-lg) !important;
+  border-color: var(--ps-green-light) !important;
+}
+
+/* Section headings green accent underline */
+.elementor-heading-title {
+  position: relative !important;
+}
+
+/* Buttons throughout site */
+.elementor-button,
+.elementor-button-wrapper a,
+a.elementor-button {
+  background: linear-gradient(135deg, var(--ps-green) 0%, var(--ps-green-dark) 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 14px 32px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.03em !important;
+  text-decoration: none !important;
+  transition: var(--ps-transition) !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+  display: inline-block !important;
+}
+
+.elementor-button:hover,
+.elementor-button-wrapper a:hover,
+a.elementor-button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5) !important;
+  background: linear-gradient(135deg, #0ea579 0%, #047857 100%) !important;
+}
+
+/* Outline button variant */
+.elementor-button.elementor-button-link {
+  background: transparent !important;
+  border: 2px solid var(--ps-green) !important;
+  color: var(--ps-green) !important;
+  box-shadow: none !important;
+}
+
+.elementor-button.elementor-button-link:hover {
+  background: var(--ps-green) !important;
+  color: #ffffff !important;
+}
+
+/* ─── ICON LIST ─── */
+.elementor-icon-list-icon svg,
+.elementor-icon-list-icon i {
+  color: var(--ps-green) !important;
+  fill: var(--ps-green) !important;
+}
+
+/* ─── IMAGES ─── */
+.elementor-widget-image img {
+  border-radius: var(--ps-radius) !important;
+  transition: var(--ps-transition) !important;
+}
+
+.elementor-widget-image:hover img {
+  transform: scale(1.02) !important;
+}
+
+/* ─── DIVIDERS ─── */
+.elementor-divider-separator {
+  border-color: var(--ps-green-light) !important;
+}
+
+/* ─── FORMS ─── */
+.elementor-field-group input,
+.elementor-field-group textarea,
+.elementor-field-group select {
+  border: 2px solid var(--ps-border) !important;
+  border-radius: var(--ps-radius) !important;
+  padding: 14px 16px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 15px !important;
+  background: var(--ps-off-white) !important;
+  color: var(--ps-text-dark) !important;
+  transition: var(--ps-transition) !important;
+  outline: none !important;
+}
+
+.elementor-field-group input:focus,
+.elementor-field-group textarea:focus,
+.elementor-field-group select:focus {
+  border-color: var(--ps-green) !important;
+  background: var(--ps-white) !important;
+  box-shadow: 0 0 0 4px var(--ps-green-glow) !important;
+}
+
+/* Form submit button */
+.elementor-button[type="submit"],
+.elementor-field-type-submit .elementor-button {
+  background: linear-gradient(135deg, var(--ps-green) 0%, var(--ps-green-dark) 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 14px 36px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 15px rgba(16,185,129,0.3) !important;
+  transition: var(--ps-transition) !important;
+}
+
+.elementor-button[type="submit"]:hover,
+.elementor-field-type-submit .elementor-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(16,185,129,0.5) !important;
+}
+
+/* ─── WHATSAPP FLOATING BUTTON ─── */
+.ps-whatsapp-float {
+  position: fixed !important;
+  bottom: 28px !important;
+  right: 28px !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5) !important;
+  z-index: 10000 !important;
+  text-decoration: none !important;
+  animation: ps-whatsapp-pulse 2.5s ease-in-out infinite !important;
+  transition: var(--ps-transition) !important;
+}
+
+.ps-whatsapp-float:hover {
+  transform: scale(1.1) translateY(-4px) !important;
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.7) !important;
+  animation: none !important;
+}
+
+.ps-whatsapp-float svg,
+.ps-whatsapp-float img {
+  width: 30px !important;
+  height: 30px !important;
+  fill: #fff !important;
+}
+
+@keyframes ps-whatsapp-pulse {
+  0%, 100% { box-shadow: 0 6px 25px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.3); }
+  50% { box-shadow: 0 6px 25px rgba(37,211,102,0.5), 0 0 0 12px rgba(37,211,102,0); }
+}
+
+/* ─── BACK TO TOP ─── */
+.ps-back-to-top {
+  position: fixed !important;
+  bottom: 100px !important;
+  right: 28px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: var(--ps-green-dark) !important;
+  border-radius: 10px !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  box-shadow: var(--ps-shadow-md) !important;
+  transition: var(--ps-transition) !important;
+  text-decoration: none !important;
+}
+
+/* ═══════════════════════════════════════════════
+   PROPERTY CARDS / LOOP GRID
+   ═══════════════════════════════════════════════ */
+
+.elementor-loop-item,
+.elementor-widget-loop-grid .elementor-loop-item {
+  border-radius: var(--ps-radius-lg) !important;
+  overflow: hidden !important;
+  box-shadow: var(--ps-shadow-sm) !important;
+  transition: var(--ps-transition) !important;
+  border: 1px solid var(--ps-border) !important;
+}
+
+.elementor-loop-item:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--ps-shadow-lg) !important;
+  border-color: var(--ps-green-light) !important;
+}
+
+/* ─── CAROUSEL ─── */
+.swiper-pagination-bullet-active {
+  background: var(--ps-green) !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--ps-green) !important;
+  background: rgba(255,255,255,0.9) !important;
+  border-radius: 50% !important;
+  width: 44px !important;
+  height: 44px !important;
+  box-shadow: var(--ps-shadow-md) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTIONS — BG COLORS
+   ═══════════════════════════════════════════════ */
+
+/* Alternating section backgrounds */
+.elementor-section:nth-child(even) > .elementor-container,
+.e-con:nth-child(even).e-parent {
+  /* subtle zebra for readability */
+}
+
+/* Hero section enhancement */
+.elementor-element:first-child > .e-con,
+.elementor-element:first-child > .elementor-container {
+  position: relative !important;
+}
+
+/* Green pill badges */
+.ps-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: var(--ps-green-light) !important;
+  color: var(--ps-green-dark) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding: 4px 12px !important;
+  border-radius: 50px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — MOBILE ADJUSTMENTS
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .elementor-location-header .e-con-inner,
+  .elementor-location-header .elementor-container {
+    padding: 0 16px !important;
+  }
+
+  .elementor-location-header .elementor-widget-theme-site-logo img {
+    height: 44px !important;
+  }
+
+  .elementor-location-footer {
+    padding: 40px 0 0 !important;
+  }
+
+  /* Mobile nav as full bottom bar */
+  .elementor-nav-menu--dropdown {
+    position: fixed !important;
+    top: var(--header-height) !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .elementor-location-header .e-con-inner {
+    padding: 0 20px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS & ENTRANCE EFFECTS
+   ═══════════════════════════════════════════════ */
+
+@keyframes ps-fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ps-scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Selection color */
+::selection {
+  background: var(--ps-green-light) !important;
+  color: var(--ps-green-dark) !important;
+}
+
+/* Focus ring for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ps-green) !important;
+  outline-offset: 3px !important;
+}
+
+/* ─── SCROLLBAR STYLING ─── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--ps-off-white); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ps-green) 0%, var(--ps-green-dark) 100%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ps-green-dark); }
